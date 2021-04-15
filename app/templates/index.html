@@ -9,6 +9,12 @@
         {% endif %}
     </head>
     <body>
-
+        <!-- All news section  -->
+        <h3> General News</h3>
+         <ul>
+            {% for everything_news in everything %}
+                <li>{{ everything_news.articles}}</li>
+            {% endfor %}
+        </ul>
     </body>
 </html>
