@@ -1,20 +1,12 @@
-{% import 'macros.html' as macro%}
+{% extends 'base.html'%} {% import 'macros.html' as macro%}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>The Daily Planet</title>
-    {% endif %}
-  </head>
-  <body>
-    <!-- All news section  -->
-    <h3>General News</h3>
-    <ul>
-      {{ macro.displayNewsList(articles)}}
-    </ul>
-  </body>
-</html>
+<!-- Content block -->
+{% block content %}
+
+<!-- All news section  -->
+<h3>General News</h3>
+<ul>
+  {{ macro.displayNewsList(articles)}}
+</ul>
+
+{% endblock%}
