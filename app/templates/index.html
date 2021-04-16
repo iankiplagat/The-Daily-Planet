@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> The Daily Planet </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- All news section  -->
-        <h3> General News</h3>
-         <ul>
-            {% for everything_news in everything %}
-                <li>{{ everything_news.articles}}</li>
-            {% endfor %}
-        </ul>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>The Daily Planet</title>
+    {% endif %}
+  </head>
+  <body>
+    <!-- All news section  -->
+    <h3>General News</h3>
+    <ul>
+      {% for articles_news in articles %}
+      <li>{{ articles_news.title }}</li>
+      {% endfor %}
+    </ul>
+  </body>
 </html>

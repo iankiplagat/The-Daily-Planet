@@ -10,6 +10,8 @@ def index():
     View root page function that returns the index page and its data
     '''
     # Getting all news
-    everything_news = get_news('everything')
+    # articles_news = get_news('articles')
+    articles_news = get_news('articles')
+    print(articles_news)
     title = 'Home - The Daily Planet '
-    return render_template('index.html', title=title, everything = everything_news)
+    return render_template('index.html', title=title, articles = articles_news)
