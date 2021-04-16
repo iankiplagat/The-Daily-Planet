@@ -75,6 +75,41 @@ def get_articles(title):
             publishedAt = articles_details_response.get('publishedAt')
             content = articles_details_response.get('content')
 
-            articles_object = articles(source,author,title,description,url,urlToImage,publishedAt,content)
+            articles_object = News(source,author,title,description,url,urlToImage,publishedAt,content)
 
     return articles_object
+
+def articles_source(title):
+    articles_source_url = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'.format(title,api_key)
+    print(articles_source_url)
+    with urllib.request.urlopen(articles_source_url) as url:
+        articles_source_data = url.read()
+        articles_source_response = json.loads(articles_source_data)
+
+        articles_source_results = None
+
+        if articles_source_response['articles']:
+            articles_source_list = articles_source_response['articles']
+            articles_source_results = process_articless_results(articles_source_list)
+
+
+    return articles_source_results
+
+def process_articles_results(news):
+    '''
+    function that processes the json files of articless from the api key
+    '''
+    articles_source_results = []
+    for articles in news:
+        author = articles.get('author')
+        description = articles.get('description')
+        time = articles.get('publishedAt')
+        url = articles.get('urlToImage')
+        image = articles.get('url')
+        title = articles.get ('title')
+
+        if url:
+            articles_objects = News(author,description,time,image,url,title)
+            articles_source_results.append(articles_objects)
+
+    return articles_source_results
