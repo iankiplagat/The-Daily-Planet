@@ -13,7 +13,7 @@ class SourceTest(unittest.TestCase):
         self.source_sources = Sources(0,'Dartmouth College','Helen Sharpe','Dartmouth Honor Class','Kiplagat','','')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.source_source,Sources))
+        self.assertTrue(isinstance(self.source_sources,Sources))
 
 class NewsTest(unittest.TestCase):
     '''
@@ -24,7 +24,7 @@ class NewsTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_news = News('Ian joins The Dartmouth honor class','Dartmouth College','Helen Sharpe','Dartmouth Honor Class','Kiplagat','','https://image.newsapi.org/v2/everything',8.5,129993)
+        self.new_news = News('Ian joins The Dartmouth honor class','Dartmouth College','Helen Sharpe','Dartmouth Honor Class','Kiplagat','','https://image.newsapi.org/v2/everything','')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_news,News))
