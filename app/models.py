@@ -40,3 +40,17 @@ class Headlines:
         self.urlToImage = urlToImage
         
         self.publishedAt = publishedAt
+        
+        
+class Category:
+    '''
+    Class that instantiates objects of the categories objects of the news sources
+    '''
+    def __init__(self,author,title,description,url,urlToImage,publishedAt):
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        
+        self.publishedAt = publishedAt        

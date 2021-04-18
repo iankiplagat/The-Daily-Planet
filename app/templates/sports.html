@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="col-9">
+  <h3 class="text-center mb-3">Sports News</h3>
+  <div class="container">
+    <div class="card-columns">
+      {% for sports in sports %}
+
+      <div class="card col-sm-4 col-md-3 col-lg-3">
+        <img class="card img-responsive" src="{{sports.urlToImage}}" alt="{{sports.urlToImage}}" size="100px180">
+        <div class="text-center card-body">
+          <h5 class="card-title">{{sports.author}}</h5>
+          <p class="card-text">{{sports.description}}</p>
+          <a href="{{sports.url}}">
+            <p class="card-text">Read more...</p>
+          </a>
+        </div>
+        <div class="text-center card-footer">
+          <small class="text-muted">Published: {{sports.publishedAt}}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

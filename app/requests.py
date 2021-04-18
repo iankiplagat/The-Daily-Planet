@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Sources,News,Headlines
+from .models import Sources,News,Headlines,Category
 
 # Getting api key
 api_key = None
@@ -119,3 +119,97 @@ def get_headlines():
             get_headlines_results = process_articles(get_headlines_list)
 
     return get_headlines_results
+
+
+def get_business():
+    '''
+    function that gets the response to the business json
+    '''
+    get_business_url = 'https://newsapi.org/v2/everything?q=business&apiKey={}'.format(api_key)
+    print(get_business_url)
+    with urllib.request.urlopen(get_business_url) as url:
+        get_business_data = url.read()
+        get_business_response = json.loads(get_business_data)
+
+        get_business_results = None
+
+        if get_business_response['articles']:
+            get_business_list = get_business_response['articles']
+            get_business_results = process_articles(get_business_list)
+
+    return get_business_results
+
+
+def get_technology():
+    '''
+    function that gets the response to the technology json
+    '''
+    get_technology_url = 'https://newsapi.org/v2/everything?q=technology&apiKey={}'.format(api_key)
+    print(get_technology_url)
+    with urllib.request.urlopen(get_technology_url) as url:
+        get_technology_data = url.read()
+        get_technology_response = json.loads(get_technology_data)
+
+        get_technology_results = None
+
+        if get_technology_response['articles']:
+            get_technology_list = get_technology_response['articles']
+            get_technology_results = process_articles(get_technology_list)
+
+    return get_technology_results
+
+
+def get_science():
+    '''
+    function that gets the response to the science json
+    '''
+    get_science_url = 'https://newsapi.org/v2/everything?q=science&apiKey={}'.format(api_key)
+    print(get_science_url)
+    with urllib.request.urlopen(get_science_url) as url:
+        get_science_data = url.read()
+        get_science_response = json.loads(get_science_data)
+
+        get_science_results = None
+
+        if get_science_response['articles']:
+            get_science_list = get_science_response['articles']
+            get_science_results = process_articles(get_science_list)
+
+    return get_science_results
+
+
+def get_sports():
+    '''
+    function that gets the response to the sports json
+    '''
+    get_sports_url = 'https://newsapi.org/v2/everything?q=sports&apiKey={}'.format(api_key)
+    print(get_sports_url)
+    with urllib.request.urlopen(get_sports_url) as url:
+        get_sports_data = url.read()
+        get_sports_response = json.loads(get_sports_data)
+
+        get_sports_results = None
+
+        if get_sports_response['articles']:
+            get_sports_list = get_sports_response['articles']
+            get_sports_results = process_articles(get_sports_list)
+
+    return get_sports_results
+
+def get_entertainment():
+    '''
+    function that gets the response to the entertainment json
+    '''
+    get_entertainment_url = 'https://newsapi.org/v2/everything?q=entertainment&apiKey={}'.format(api_key)
+    print(get_entertainment_url)
+    with urllib.request.urlopen(get_entertainment_url) as url:
+        get_entertainment_data = url.read()
+        get_entertainment_response = json.loads(get_entertainment_data)
+
+        get_entertainment_results = None
+
+        if get_entertainment_response['articles']:
+            get_entertainment_list = get_entertainment_response['articles']
+            get_entertainment_results = process_articles(get_entertainment_list)
+
+    return get_entertainment_results
