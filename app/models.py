@@ -38,7 +38,6 @@ class Headlines:
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
-        
         self.publishedAt = publishedAt
         
         
@@ -52,5 +51,4 @@ class Category:
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
-        
         self.publishedAt = publishedAt        
