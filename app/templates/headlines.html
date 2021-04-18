@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="col-9">
+  <h3 class="text-center mb-3">Top News</h3>
+  <div class="container">
+    <div class="card-columns">
+      {% for headlines in headlines %}
+
+      <div class="card col-sm-4 col-md-3 col-lg-3">
+        <img class="card img-responsive" src="{{headlines.urlToImage}}" alt="{{headlines.urlToImage}}" size="100px180">
+        <div class="text-center card-body">
+          <h5 class="card-title">{{headlines.author}}</h5>
+          <p class="card-text">{{headlines.description}}</p>
+          <a href="{{headlines.url}}">
+            <p class="card-text">Read more...</p>
+          </a>
+        </div>
+        <div class="text-center card-footer">
+          <small class="text-muted">Published: {{headlines.publishedAt}}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+

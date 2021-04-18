@@ -9,16 +9,25 @@
 {% block content %}
 
 <!-- All news section  -->
-<div class="row">
+<div class="row col-md-12">
   <div class="col-md-3">
     <h3>Sources</h3>
+    <div>
+      <p class="text-muted">abcnews.com</p>
+      <p class="text-muted">abcnews.com</p>
+      <p class="text-muted">abcnews.com</p>
+      <p class="text-muted">abcnews.com</p>      
+      <p class="text-muted">abcnews.com</p>
+      <p class="text-muted">abcnews.com</p>
+      <p class="text-muted">abcnews.com</p>
+    </div>
   </div>
   <div class="col-md-9">
     <h3 class="">General News</h3>
-    <div>
-      {{ macro.displayNewsList(articles)}}
-    </ul>
-  </div>
-</div>
 
-{% endblock%}
+    {{ macro.displayNewsList(articles)}}
+    
+  </div>
+
+  {% endblock%}
+</div>
