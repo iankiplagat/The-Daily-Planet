@@ -12,21 +12,14 @@
 <div class="row col-md-12">
   <div class="col-md-3">
     <h3>Sources</h3>
-    <div>
-      <p class="text-muted">abcnews.com</p>
-      <p class="text-muted">abcnews.com</p>
-      <p class="text-muted">abcnews.com</p>
-      <p class="text-muted">abcnews.com</p>      
-      <p class="text-muted">abcnews.com</p>
-      <p class="text-muted">abcnews.com</p>
-      <p class="text-muted">abcnews.com</p>
-    </div>
+    {% for source in source %}
+    <a class="text-muted" href="{{ source.url }}" target="_blank">{{ source.name }} <br /></a>
+    {% endfor %}
   </div>
   <div class="col-md-9">
     <h3 class="">General News</h3>
 
     {{ macro.displayNewsList(articles)}}
-    
   </div>
 
   {% endblock%}

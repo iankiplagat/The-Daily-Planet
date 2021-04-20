@@ -62,32 +62,34 @@ def process_articles(news_list):
     return news_articles
 
 
-def get_news_sources(id):
+def get_news_source():
     
     '''
     Function that gets the json response to our url request
     '''
-    get_news_sources_url = source_url.format(id,api_key)
+    get_news_source_url = source_url.format(api_key)
+    # print(get_news_source_url)
     
-    with urllib.request.urlopen(get_news_sources_url) as url:
-        get_news_sources_data = url.read()
-        get_news_sources_response = json.loads(get_news_sources_data)
+    with urllib.request.urlopen(get_news_source_url) as url:
+        get_news_source_data = url.read()
+        # print(get_news_source_data)
+        get_news_source_response = json.loads(get_news_source_data)
+        # print(get_news_source_response)
+        news_source_results = None
         
-        news_sources_results = None
-        
-        if get_news_sources_response['id']:
-            news_sources_results_list = get_news_sources_response['id']
-            news_sources_results = process_results(news_sources_results_list)
+        if get_news_source_response['sources']:
+            news_source_results_list = get_news_source_response['sources']
+            news_source_results = process_results(news_source_results_list)
  
-    return news_sources_results
+    return news_source_results
 
 
-def process_results(news_sources_list):
+def process_results(news_source_list):
     '''
     Function that processes the json results
     '''
-    news_sources_results = []
-    for source in news_sources_list:
+    news_source_results = []
+    for source in news_source_list:
         id = source.get('id')
         name = source.get('name')
         description = source.get('description')
@@ -96,17 +98,17 @@ def process_results(news_sources_list):
         language = source.get('language')
         country = source.get('country')
         if url:
-            news_source_object = Sources(id,name,description,url,category,country)
-            news_sources_results.append(news_source_object)
-    
-    return news_sources_results
+            news_source_object = Sources(id,name,description,url,category,language,country)
+            news_source_results.append(news_source_object)
+    # print(news_source_results)
+    return news_source_results
 
 
 def get_headlines():
     '''
     function that gets the response to the category json
     '''
-    get_headlines_url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news,al-jazeera-english,cnn,independent,google-news,the-telegraph,mashable,the-lad-bible,bloomberg,engadget,espn,fortune&sortBy=publishedAt&apiKey={}'.format(api_key)
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?source=bbc-news,al-jazeera-english,cnn,independent,google-news,the-telegraph,mashable,the-lad-bible,bloomberg,engadget,espn,fortune&sortBy=publishedAt&apiKey={}'.format(api_key)
     print(get_headlines_url)
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
